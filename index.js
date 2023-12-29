@@ -23,7 +23,7 @@ app.use("/user",userrouter)
 app.use("/product",proroute)
 app.use("/cart",cartroute)
 
-app.get("/product/",home)
+app.get("/",home)
 
 app.listen(8090,()=>{
     console.log("http://localhost:8090");
