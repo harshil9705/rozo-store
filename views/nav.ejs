@@ -1,0 +1,55 @@
+<header >
+    <div class="container">
+        <div class="d3">
+            <div class="container">
+                <nav class="in">
+                    <a href="/product"><img src="https://preview.colorlib.com/theme/cozastore/images/icons/logo-01.png.webp" style="height: 65%;margin-right: 55px;display: flex;align-items: center;"  alt=""></a>
+                    <div>
+                        <ul class="row main-menu">
+                            <li id="home"><a  href="/product">Home</a></li>
+                            <li id="shope"><a  href="/product/shop">Shop</a></li>
+                            <li id="add"><a  href="/product/list">Add Product</a></li>
+                            <li id="my"><a  href="/product/getseller">My product</a></li>
+                            <li id="cart"><a  href="/cart/getcart">Cart</a></li>
+                            <li id="logout"><a  href="/user/logout">Log Out</a></li>
+                            <li id="signup"><a  href="/user/signup">Sign up</a></li>
+                            <li id="login"><a  href="/user/login">Log in</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    const cookie = document.cookie;
+    if(!cookie){
+        document.getElementById("signup").style.display="block"
+        document.getElementById("login").style.display="block"
+        document.getElementById("add").style.display="none"
+        document.getElementById("my").style.display="none"
+        document.getElementById("logout").style.display="none"
+        document.getElementById("logout").addEventListener("click",()=>{
+            location.reload()
+        })
+    }
+    else{
+        document.getElementById("signup").style.display="none"
+        document.getElementById("login").style.display="none"
+        document.getElementById("logout").style.display="block"
+
+        const verify = cookie.split(";")[1];
+        const verify2= verify.split("=")[1];
+
+        if(verify2 == "user"){
+            document.getElementById("add").style.display="none"
+            document.getElementById("my").style.display="none"
+        }
+        else{
+            document.getElementById("add").style.display="block"
+            document.getElementById("my").style.display="block"
+            document.getElementById("cart").style.display="none"
+        }
+    }
+</script>

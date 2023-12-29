@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozastore - Add</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
+</head>
+<body>
+    <%- include("nav") %>
+    <section class="line-section" style="background-image: url(../img/bg-000.jpg);">
+        <h2>List Product</h2>
+    </section>
+    <div class="box" style="height: auto; padding:50px 0px;">
+        <div class="in-box">
+            <form action="/product/list" method="post">
+
+                <input type="text" placeholder="title" class="border" name="title" required><br>
+        
+                <textarea name="decription" id="" cols="30" rows="5" placeholder="decription" class="border" required></textarea>
+                <br> 
+                
+                <input type="number" placeholder="price" class="border" name="price" required><br>
+                
+                <input type="url" placeholder="Enter Image Url" class="border" name="image" required><br>
+        
+                <select name="category" id="" required>
+                    <option >Enter Category</option>
+                    <option value="man">Man</option>
+                    <option value="woman">Woman</option>
+                    <option value="shoes">Shoes</option>
+                    <option value="watch">Watches</option>
+                </select>
+                
+                <input type="number" placeholder="Enter Stock" class="border" name="stock" required><br>
+                
+                <input type="text" placeholder="Enter Colour" class="border" name="colour" required><br>
+        
+                <input type="text" placeholder="Enter Size" class="border" name="size" required><br>
+
+                <button type="submit" class="user-btn">Add Now</button>
+            </form>
+        </div>
+    </div>
+    <%- include(("footer")) %>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozastore - Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
+</head>
+<body>
+        <%- include('nav')%>
+        <section class="img">
+            <div class="container" >
+                <div style="padding: 200px 0px; ">
+                    <h2 style="font-size: 28px; line-height: 1.2857; color: #333;">
+                        Man New-Collection</h2>
+                    <h1 style="font-size: 60px; line-height: 1.2857; font-family: 'Playfair Display', serif; font-family: 'Playfair Display', serif; color: #333; padding: 19px 0px 43px 0px;">
+                        JACKETS & CORTS</h1>
+                    <a href="/product/shop" class="user-btn" style="padding: 10px 15px; line-height: 1.466667; background-color: #717FE0;">SHOP NOW</a>
+                </div>
+            </div>
+        </section>
+        <section style="padding:  80px 0px 50px 0px;">
+            <div class="container">
+                <div class="row">
+                    <div style="width: 33.3333%; padding-bottom: 30px; padding-left: 15px; padding-right: 15px;">
+                        <div  style="position: relative;">
+                            <img src="https://preview.colorlib.com/theme/cozastore/images/banner-04.jpg.webp" style="border: 1px solid #e6e6e6;" width="100%" height="100%" alt="">
+                            <a href="/product/shop">
+                                <div class="boxes">
+                                    <span >Woman</span>
+                                    <h2>Collection</h2>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div style="width: 33.3333%; padding-bottom: 30px; padding-left: 15px; padding-right: 15px;">
+                        <div  style="position: relative;">
+                            <img src="https://preview.colorlib.com/theme/cozastore/images/banner-02.jpg.webp" style="border: 1px solid #e6e6e6;" width="100%" height="100%" alt="">
+                            <a href="/product/shop">
+                                <div class="boxes">
+                                    <span >Man</span>
+                                    <h2>Collection</h2>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div style="width: 33.3333%; padding-bottom: 30px; padding-left: 15px; padding-right: 15px;">
+                        <div  style="position: relative;">
+                            <img src="https://preview.colorlib.com/theme/cozastore/images/banner-07.jpg.webp" style="border: 1px solid #e6e6e6;" width="100%" height="100%" alt="">
+                            <a href="/product/shop">
+                                <div class="boxes">
+                                    <span>Accessories</span>
+                                    <h2>New Trend</h2>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <h2 style="font-size: 36px; line-height: 1.1; text-transform: uppercase; color: #222; padding: 10px 0px 0px 0px; ">Product Overview</h2>
+            <div class="filter" style=" display: flex; align-items: center;  padding-left: 15px; justify-content: space-between;">
+                <ul style=" display: flex;">
+                    <li id="all">All Products</li>
+                    <li id="man">Man</li>
+                    <li id="woman">Woman</li>
+                    <li id="shoes">Shoes</li>
+                    <li id="watch">Watches</li>
+                </ul>
+                <input type="text" placeholder="Search..." id="search" style="width: 30%; margin-top: 4px; height: 40px; margin-top: 10px; color: #888;">
+            </div>
+            <div id="ui" style="display: flex; margin:50px 0px; flex-wrap: wrap;"></div>
+        </div>
+        <%- include("footer") %>
+</body>
+<script src="/js/shop.js"></script>
+</html>

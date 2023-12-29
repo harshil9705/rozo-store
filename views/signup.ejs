@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozastore - Sign Up</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
+</head>
+<body>
+        <%- include('nav')%>
+        <section class="line-section">
+            <h2>Sign Up</h2>
+        </section>
+        <div class="box">
+            <div class="in-box">
+                <form action="/user/signup" method="post"  >
+                    <input type="text" name="username" placeholder="Enter Username" required><br>
+                    <input type="text" name="email" placeholder="Your Email Address" required><br>
+                    <input type="text" name="password" placeholder="Enter Password" required><br>
+                    <select name="role" id="">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select><br>
+                    <button type="submit" class="user-btn">Sign Up</button>
+                </form>
+            </div>
+        </div>
+        <%- include("footer") %>
+</body>
+</html>

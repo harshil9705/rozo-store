@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozastore - Shop</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
+</head>
+<body>
+    <%- include("nav") %>
+    <div class="container">
+        <div class="filter" style=" display: flex; align-items: center; margin-top: 30px; padding-left: 15px; justify-content: space-between;">
+            <ul style=" display: flex;">
+                <li id="all">All Products</li>
+                <li id="man">Man</li>
+                <li id="woman">Woman</li>
+                <li id="shoes">Shoes</li>
+                <li id="watch">Watches</li>
+            </ul>
+            <input type="text" placeholder="Search..." id="search" style="width: 30%; margin-top: 4px; height: 40px; margin-top: 10px; color: #888;">
+        </div>
+        <div id="ui" style="display: flex; margin:50px 0px; flex-wrap: wrap;"></div>
+    </div>
+    <%- include("footer") %>
+</body>
+<script src="/js/shop.js"></script>
+</html>
