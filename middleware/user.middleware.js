@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken")
 const authuser = (req,res,next)=>{
     const {token} = req.cookies
     if(token){
-        const data = jwt.verify(token,process.env.key)
+        const data = jwt.verify(token,"private")
         if (data) {
             req.bla = data
             next()
@@ -20,7 +20,7 @@ const authuser = (req,res,next)=>{
 const authadmin = (req,res,next)=>{
     const {token} = req.cookies
     if(token){
-        const data = jwt.verify(token,process.env.key)
+        const data = jwt.verify(token,"private")
         if(data.role == "admin"){
             req.bla = data
             next()

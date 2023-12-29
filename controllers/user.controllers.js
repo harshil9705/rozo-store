@@ -44,7 +44,7 @@ const signup = async(req,res)=>{
                 else{
                     const obj = {email,password:hash,username,role}
                     const data = await user.create(obj)
-                    const token = jwt.sign({id:data._id,role:data.role},process.env.key)
+                    const token = jwt.sign({id:data._id,role:data.role},"private")
                     return res.cookie("token",token).redirect("/product")
                 }
             })
@@ -65,7 +65,7 @@ const login = async(req,res)=>{
                     res.send({error})
                 }
                 else if(result){
-                    const token = jwt.sign({id:data._id,role:data.role},process.env.key)
+                    const token = jwt.sign({id:data._id,role:data.role},"private")
                     res.cookie("token",token).cookie("role",data.role).redirect("/product/")
                 }
                 else{
