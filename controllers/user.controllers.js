@@ -45,7 +45,7 @@ const signup = async(req,res)=>{
                     const obj = {email,password:hash,username,role}
                     const data = await user.create(obj)
                     const token = jwt.sign({id:data._id,role:data.role},"private")
-                    return res.cookie("token",token).redirect("/product")
+                    return res.cookie("token",token).cookie("role",data.role).redirect("/product")
                 }
             })
         }

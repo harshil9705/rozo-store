@@ -1,4 +1,11 @@
+const cookiea = document.cookie;
 document.getElementById("cart2").addEventListener("click",()=>{
+    if(!cookiea){
+        alert("registration first")
+        setTimeout(() => {
+            location.replace("/user/signup")
+        }, 1000);
+    }
     try {
         let url = window.location.href.split("/");
         let id = url[url.length - 1];
@@ -17,7 +24,6 @@ function myFunction() {
     document.getElementById("cart2").disabled = true;
     }
 
-const cookiea = document.cookie;
 if(cookiea){
     const verify = cookiea.split(";")[1];
     const verify2= verify.split("=")[1];
