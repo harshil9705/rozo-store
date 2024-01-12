@@ -9,15 +9,19 @@ const display = (data) =>{
         const img = document.createElement("img")
         img.setAttribute("class","image")
         img.src=ele.image
-
+        
         const view = document.createElement("button")
         view.setAttribute("class","viewbtn")
         view.innerHTML="Quick View"
+
+        let outofstock  = document.createElement("h2")
+        outofstock.innerHTML="OUT OF STOCK"
+        outofstock.setAttribute("class","outofstock")
         
         const firdiv = document.createElement("div")
         firdiv.setAttribute("class","firdiv")
         firdiv.append(img,view)
-
+        
         let title  = document.createElement("h1")
         title.innerHTML=ele.title
         title.setAttribute("class","title")
@@ -26,14 +30,21 @@ const display = (data) =>{
         price.innerHTML=`₹ ${ele.price}.00`
         price.setAttribute("class","price")
 
+
         let list = document.createElement('div')
         list.setAttribute("class","list")
         list.append(firdiv,title,price)
-
+        
+        if(ele.stock == 0){
+            view.style.display="none"
+            firdiv.append(outofstock)
+            img.style.filter="blur(1px)"
+        }
+        
         view.addEventListener("click",()=>{
             window.location.href=`/product/single/${ele._id}`
         })
-
+        
         document.getElementById("ui").append(list);
     })
 }

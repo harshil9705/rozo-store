@@ -1,12 +1,12 @@
 const cookiea = document.cookie;
 document.getElementById("cart2").addEventListener("click",()=>{
-    if(!cookiea){
-        alert("registration first")
-        setTimeout(() => {
-            location.replace("/user/signup")
-        }, 1000);
-    }
     try {
+        if(!cookiea){
+            alert("registration first")
+            setTimeout(() => {
+                location.replace("/user/signup")
+            }, 1000);
+        }
         let url = window.location.href.split("/");
         let id = url[url.length - 1];
         console.log("sent to cart");

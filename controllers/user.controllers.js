@@ -26,6 +26,15 @@ const getopt = (req,res)=>{
     res.render("otp")
 }
 
+const logout = async(req,res)=>{
+    res.clearCookie("token").clearCookie("role").redirect("/product/")
+}
+
+const getemail = async(req,res)=>{
+    res.render("femail")
+}
+
+
 // post
 
 const signup = async(req,res)=>{
@@ -81,10 +90,6 @@ const login = async(req,res)=>{
     }
 }
 
-const logout = async(req,res)=>{
-    res.clearCookie("token").clearCookie("role").redirect("/product/")
-}
-
 
 const transport = nodemailer.createTransport({
     service:'gmail',
@@ -94,22 +99,30 @@ const transport = nodemailer.createTransport({
     }
 })
 
+
 const mail = async(req,res)=>{
     try {
-        const {id} = req.bla
-        const data = await user.findById(id)
-    
-        const mail={
-            from:'harshillakhani009@gmail.com',
-            to:data.email,
-            html:`<p>your varification otp is :- ${otp}</p>`
-        }
-        transport.sendMail(mail,(error,info)=>{
-            if(error){
-                console.log(error);
+        const {email} = req.body
+        console.log(email);
+        const data = await user.findOne({email})
+        console.log(data);
+        if(data){
+            const mail={
+                from:'harshillakhani009@gmail.com',
+                to:data.email,
+                html:`<p>your varification otp is :- ${otp}</p>`
             }
-        })
-        res.render('otp')
+            transport.sendMail(mail,(error,info)=>{
+                if(error){
+                    console.log(error);
+                }
+            })
+            res.cookie("userid",data.id).render('otp')
+        }
+        else{
+            // alert("account not ragisterd")
+            res.redirect("/user/signup")
+        }
     } catch (error) {
         return res.send({error:error.message})
     }
@@ -129,9 +142,9 @@ const forget = async(req,res)=>{
 
     try {
         const {newpass} = req.body;
-        const {id} = req.bla;
+        const {userid} = req.cookies;
 
-        const account = await user.findById(id);
+        const account = await user.findById(userid);
 
         
         bcrypt.hash(newpass,5,async(error,hash)=>{
@@ -139,8 +152,8 @@ const forget = async(req,res)=>{
                 res.send({error:error.message});
             }
             else{
-                 await user.findByIdAndUpdate(id,{password:hash});
-                res.send({message:"password Updated successfully"});
+                 await user.findByIdAndUpdate(userid,{password:hash});
+                res.clearCookie("userid").redirect("/");
             }
         })
     } catch (error) {
@@ -149,4 +162,4 @@ const forget = async(req,res)=>{
 }
 
 
-module.exports = {getlogin,getsignup,getforget,getopt,signup,login,mail,authotp,forget,logout}
+module.exports = {getlogin,getsignup,getforget,getopt,signup,login,mail,authotp,forget,logout,getemail}

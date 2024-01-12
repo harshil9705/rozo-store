@@ -1,5 +1,5 @@
 const {Router} = require("express")
-const { getsignup, getlogin, signup, login,  mail, getforget, getopt, authotp, forget, logout } = require("../controllers/user.controllers")
+const { getsignup, getlogin, signup, login,  mail, getforget, getopt, authotp, forget, logout, getemail } = require("../controllers/user.controllers")
 const { authuser } = require("../middleware/user.middleware")
 const userrouter = Router()
 
@@ -9,7 +9,7 @@ userrouter.get("/signup",getsignup)
 
 userrouter.get("/login",getlogin)
 
-userrouter.get("/mail",authuser,mail)
+userrouter.get("/email",getemail)
 
 userrouter.get("/verifyotp",authotp)
 
@@ -27,7 +27,9 @@ userrouter.post("/login",login)
 
 userrouter.post("/otp",authotp)
 
-userrouter.post("/forget",authuser,forget)
+userrouter.post("/forget",forget)
+
+userrouter.post("/email",mail)
 
 
 
