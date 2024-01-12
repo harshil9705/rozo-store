@@ -27,7 +27,7 @@ const getopt = (req,res)=>{
 }
 
 const logout = async(req,res)=>{
-    res.clearCookie("token").clearCookie("role").redirect("/product/")
+    res.clearCookie("userid").clearCookie("token").clearCookie("role").redirect("/product/")
 }
 
 const getemail = async(req,res)=>{
