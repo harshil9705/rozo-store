@@ -34,7 +34,7 @@ const getemail = async(req,res)=>{
     res.render("femail")
 }
 
-
+    
 // post
 
 const signup = async(req,res)=>{
