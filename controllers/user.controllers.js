@@ -103,9 +103,7 @@ const transport = nodemailer.createTransport({
 const mail = async(req,res)=>{
     try {
         const {email} = req.body
-        console.log(email);
         const data = await user.findOne({email})
-        console.log(data);
         if(data){
             const mail={
                 from:'harshillakhani009@gmail.com',
@@ -117,7 +115,7 @@ const mail = async(req,res)=>{
                     console.log(error);
                 }
             })
-            res.cookie("userid",data.id).render('otp')
+            res.setHeader("userid",data.id).render('otp')
         }
         else{
             // alert("account not ragisterd")
@@ -143,7 +141,7 @@ const forget = async(req,res)=>{
     try {
         const {newpass} = req.body;
         const {userid} = req.cookies;
-
+        console.log((req.headers));
         const account = await user.findById(userid);
 
         
